@@ -83,15 +83,15 @@ describe('TransferHelper', () => {
     })
   })
 
-  describe('#safeTransferBNB', () => {
+  describe('#safeTransferMATIC', () => {
     it('succeeds call not reverted', async () => {
       await fakeFallback.setup(false)
-      await transferHelper.safeTransferBNB(fakeFallback.address, 0)
+      await transferHelper.safeTransferMATIC(fakeFallback.address, 0)
     })
     it('fails if call reverts', async () => {
       await fakeFallback.setup(true)
-      await expect(transferHelper.safeTransferBNB(fakeFallback.address, 0)).to.be.revertedWith(
-        'TransferHelper: BNB_TRANSFER_FAILED'
+      await expect(transferHelper.safeTransferMATIC(fakeFallback.address, 0)).to.be.revertedWith(
+        'TransferHelper: MATIC_TRANSFER_FAILED'
       )
     })
   })
